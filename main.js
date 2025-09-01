@@ -41,11 +41,23 @@
                 }
 
                 if (floralElement) {
-                    floralElement.style.transform = `translateZ(-5px) scale(1.5) rotate(${floralRotation}deg) translateY(${scrollValue * 0.05}px)`;
+                    floralElement.style.transformOrigin = 'center center';
+                    // En móvil, solo aplicar rotación para evitar problemas
+                    if (window.innerWidth <= 768) {
+                        floralElement.style.transform = `rotate(${floralRotation}deg)`;
+                    } else {
+                        floralElement.style.transform = `translateZ(-5px) scale(1.5) rotate(${floralRotation}deg) translateY(${scrollValue * 0.05}px)`;
+                    }
                 }
 
                 if (stoneElement) {
-                    stoneElement.style.transform = `translateZ(-10px) scale(2) rotate(${stoneRotation}deg) translateY(${scrollValue * 0.08}px)`;
+                    stoneElement.style.transformOrigin = 'center center';
+                    // En móvil, solo aplicar rotación para evitar problemas
+                    if (window.innerWidth <= 768) {
+                        stoneElement.style.transform = `rotate(${stoneRotation}deg)`;
+                    } else {
+                        stoneElement.style.transform = `translateZ(-10px) scale(2) rotate(${stoneRotation}deg) translateY(${scrollValue * 0.08}px)`;
+                    }
                 }
 
                 // Estilo dinámico del header
